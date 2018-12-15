@@ -3,6 +3,12 @@ package org.shipstone.demo.cache.commons.web.exceptions;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.HttpStatusCodeException;
 
+/**
+ * Projet commons Spring
+ *
+ * @author François Robert
+ * LICENCE Apache 2.0
+ */
 public class RegisteredException extends Exception {
 
   private final HttpStatus httpStatus;

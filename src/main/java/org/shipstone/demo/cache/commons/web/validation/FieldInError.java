@@ -8,6 +8,12 @@ import java.util.List;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
+/**
+ * Projet commons Spring
+ *
+ * @author François Robert
+ * LICENCE Apache 2.0
+ */
 @JsonInclude(NON_NULL)
 public class FieldInError implements Serializable {
 

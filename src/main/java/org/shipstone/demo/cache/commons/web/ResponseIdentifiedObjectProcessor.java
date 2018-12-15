@@ -5,7 +5,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
 
-  public interface ResponseIdentifiedObjectProcessor extends ResponseEntityProcessor {
+/**
+ * Projet commons Spring
+ *
+ * @author François Robert
+ * LICENCE Apache 2.0
+ */
+public interface ResponseIdentifiedObjectProcessor extends ResponseEntityProcessor {
 
   default <D extends IdentifiedObject> ResponseEntity<D> responseEntity(D data, HttpHeaders requestHttpHeaders, UriComponentsBuilder uriComponentsBuilder) {
     return responseEntity(data, requestHttpHeaders, uriComponentsBuilder

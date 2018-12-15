@@ -11,6 +11,12 @@ import java.util.Map;
 
 import static org.shipstone.demo.cache.commons.data.DataSpecification.ValueOperation.*;
 
+/**
+ * Projet commons Spring
+ *
+ * @author François Robert
+ * LICENCE Apache 2.0
+ */
 public class DataSpecification<T> implements Specification<T> {
 
   private final Map<String, Join> joinTableMap;

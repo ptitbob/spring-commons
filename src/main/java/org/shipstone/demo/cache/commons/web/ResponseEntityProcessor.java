@@ -13,6 +13,12 @@ import java.util.stream.Collectors;
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.ALL;
 
+/**
+ * Projet commons Spring
+ *
+ * @author François Robert
+ * LICENCE Apache 2.0
+ */
 public interface ResponseEntityProcessor {
 
   default <E, D> ResponseEntity<List<D>> responseEntity(Page<E> page, Function<E, D> function) {

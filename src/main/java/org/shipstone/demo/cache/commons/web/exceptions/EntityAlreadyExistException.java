@@ -4,6 +4,12 @@ import org.shipstone.demo.cache.commons.domain.IdentifiedObject;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
+/**
+ * Projet commons Spring
+ *
+ * @author François Robert
+ * LICENCE Apache 2.0
+ */
 public class EntityAlreadyExistException extends RegisteredException {
 
   public EntityAlreadyExistException(String code, String message) {

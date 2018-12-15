@@ -12,7 +12,12 @@ import java.time.LocalDateTime;
 
 import static org.shipstone.demo.cache.commons.Constants.JSON_TIMESTAMP_PATTERN;
 
-
+/**
+ * Projet commons Spring
+ *
+ * @author François Robert
+ * LICENCE Apache 2.0
+ */
 public abstract class FollowedDto {
 
   @JsonView(Views.Details.class)

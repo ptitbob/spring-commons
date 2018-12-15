@@ -8,6 +8,24 @@
     <artifactId>spring-commons</artifactId>
     <version>1.0</version>
 
+    <description>Ensemble d'API pour accompagner un projet SpringBoot</description>
+    <scm>
+        <url>https://github.com/ptitbob/spring-commons</url>
+    </scm>
+    <licenses>
+        <license>
+            <name>Apache 2.0</name>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>François Robert</name>
+            <email>developer@shipstone.org</email>
+            <url>www.shipstone.org</url>
+        </developer>
+    </developers>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
