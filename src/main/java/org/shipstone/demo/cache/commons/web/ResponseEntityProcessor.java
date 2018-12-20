@@ -1,15 +1,19 @@
 package org.shipstone.demo.cache.commons.web;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.util.Collections.emptyList;
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.ALL;
 
@@ -20,6 +24,10 @@ import static org.springframework.http.MediaType.ALL;
  * LICENCE Apache 2.0
  */
 public interface ResponseEntityProcessor {
+
+  default <D> ResponseEntity<List<D>> responseEntity(List<D> list, Pageable pageable) {
+    return responseEntity(page(list, pageable));
+  }
 
   default <E, D> ResponseEntity<List<D>> responseEntity(Page<E> page, Function<E, D> function) {
     List<D> list = page.getContent().stream()
@@ -48,6 +56,20 @@ public interface ResponseEntityProcessor {
       httpStatus = NO_CONTENT;
     }
     return httpStatus;
+  }
+
+  default <D> Page<D> page(List<D> list, Pageable pageable) {
+    if (list == null || list.isEmpty()) {
+      return new PageImpl<>(emptyList(), pageable, 0);
+    }
+    if (list.size() < pageable.getOffset()) {
+      return new PageImpl<>(list, pageable, list.size());
+    }
+    if (list.size() < (pageable.getOffset() + pageable.getPageSize())) {
+      return new PageImpl<>(list.subList(Long.valueOf(pageable.getOffset()).intValue(), list.size()), pageable, list.size());
+    } else {
+      return new PageImpl<>(list.subList(Long.valueOf(pageable.getOffset()).intValue(), Long.valueOf(pageable.getOffset() + pageable.getPageSize()).intValue()), pageable, list.size());
+    }
   }
 
   default <D> ResponseEntity<D> responseEntity(D data, HttpHeaders requestHttpHeaders) {
