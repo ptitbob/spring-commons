@@ -6,7 +6,7 @@
 
     <groupId>org.shipstone</groupId>
     <artifactId>spring-commons</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <description>Ensemble d'API pour accompagner un projet SpringBoot</description>
     <scm>
