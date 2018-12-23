@@ -15,6 +15,7 @@ public class RegisteredException extends Exception {
 
   private final String code;
 
+  private String initialMessage;
 
   public RegisteredException(HttpStatus status, String code, String message) {
     this(status, code, message, null);
@@ -24,6 +25,7 @@ public class RegisteredException extends Exception {
     super(message, e);
     this.httpStatus = status;
     this.code = code;
+    this.initialMessage = e.getMessage();
   }
 
   public HttpStatus getHttpStatus() {
@@ -34,4 +36,7 @@ public class RegisteredException extends Exception {
     return code;
   }
 
+  public String getInitialMessage() {
+    return initialMessage;
+  }
 }

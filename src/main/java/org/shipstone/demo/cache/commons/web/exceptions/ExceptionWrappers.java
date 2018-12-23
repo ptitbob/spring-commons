@@ -32,7 +32,11 @@ public abstract class ExceptionWrappers {
   }
 
   protected HttpHeaders httpHeaders(RegisteredException e, MediaType mediaType) {
-    return httpHeaders(e.getCode(), e.getMessage(), mediaType);
+    HttpHeaders httpHeaders = httpHeaders(e.getCode(), e.getMessage(), mediaType);
+    if (e.getInitialMessage() != null && !"".equals(e.getInitialMessage().trim())) {
+      httpHeaders.add("x-error-initial", e.getInitialMessage());
+    }
+    return httpHeaders;
   }
 
   protected HttpHeaders httpHeaders(String code, String message) {
