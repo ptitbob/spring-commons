@@ -1,7 +1,6 @@
 package org.shipstone.demo.cache.commons.web.exceptions;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.client.HttpStatusCodeException;
 
 /**
  * Projet commons Spring
@@ -25,7 +24,9 @@ public class RegisteredException extends Exception {
     super(message, e);
     this.httpStatus = status;
     this.code = code;
-    this.initialMessage = e.getMessage();
+    if (e != null && e.getMessage() != null) {
+      this.initialMessage = e.getMessage();
+    }
   }
 
   public HttpStatus getHttpStatus() {
